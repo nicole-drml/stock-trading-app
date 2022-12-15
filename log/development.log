@@ -280,3 +280,595 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 35ms (Views: 30.3ms | ActiveRecord: 0.0ms | Allocations: 39649)
 
 
+Started GET "/" for 127.0.0.1 at 2022-12-15 14:10:14 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 332)
+  Rendered layout layouts/application.html.erb (Duration: 42.3ms | Allocations: 36010)
+Completed 200 OK in 49ms (Views: 44.3ms | ActiveRecord: 0.0ms | Allocations: 39451)
+
+
+Started GET "/" for 127.0.0.1 at 2022-12-15 14:10:16 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 2542)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.0ms | Allocations: 2868)
+
+
+Started GET "//categories" for 127.0.0.1 at 2022-12-15 14:10:17 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/categories"):
+  
+Started GET "/" for 127.0.0.1 at 2022-12-15 14:10:18 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 23.3ms | Allocations: 2625)
+Completed 200 OK in 25ms (Views: 24.1ms | ActiveRecord: 0.0ms | Allocations: 2929)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-12-15 14:10:19 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users/sign_up" for 127.0.0.1 at 2022-12-15 14:10:50 +0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.5ms | Allocations: 251)
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 619)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 17.3ms | Allocations: 7558)
+  Rendered layout layouts/application.html.erb (Duration: 19.4ms | Allocations: 9966)
+Completed 200 OK in 34ms (Views: 21.4ms | ActiveRecord: 0.6ms | Allocations: 17898)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2022-12-15 14:16:21 +0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 1361)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | Allocations: 1450)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms | Allocations: 5268)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h2>Sign up</h2>
+
+<%= simple_form_for (resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+):
+1:    <h2>Sign up</h2>
+2:    
+3:    <%= simple_form_for (resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+4:      <%= render "devise/shared/error_messages", resource: resource %>
+5:    
+6:      <div class="field">
+7:        <%= f.label :email %><br />
+8:        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+9:      </div>
+10:    
+11:      <div class="field">
+12:        <%= f.label :password %>
+13:        <% if @minimum_password_length %>
+14:        <em>(<%= @minimum_password_length %> characters minimum)</em>
+15:        <% end %><br />
+16:        <%= f.password_field :password, autocomplete: "new-password" %>
+17:      </div>
+18:    
+19:      <div class="field">
+20:        <%= f.label :password_confirmation %><br />
+21:        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+22:      </div>
+23:    
+24:      <div class="actions">
+25:        <%= f.submit "Sign up" %>
+26:      </div>
+27:    <% end %>
+28:    
+29:    <%= render "devise/shared/links" %>
+  
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected label, expecting '='
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected label, expecting '='
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected label, expecting '='
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected label, expecting '='
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected label, expecting '='
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected label, expecting '='
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+Started GET "/users/sign_up" for 127.0.0.1 at 2022-12-15 14:16:44 +0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1397)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 1487)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 2828)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h2>Sign up</h2>
+
+<%= simple_form_for @user (resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+):
+1:    <h2>Sign up</h2>
+2:    
+3:    <%= simple_form_for @user (resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+4:      <%= render "devise/shared/error_messages", resource: resource %>
+5:    
+6:      <div class="field">
+7:        <%= f.label :email %><br />
+8:        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+9:      </div>
+10:    
+11:      <div class="field">
+12:        <%= f.label :password %>
+13:        <% if @minimum_password_length %>
+14:        <em>(<%= @minimum_password_length %> characters minimum)</em>
+15:        <% end %><br />
+16:        <%= f.password_field :password, autocomplete: "new-password" %>
+17:      </div>
+18:    
+19:      <div class="field">
+20:        <%= f.label :password_confirmation %><br />
+21:        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+22:      </div>
+23:    
+24:      <div class="actions">
+25:        <%= f.submit "Sign up" %>
+26:      </div>
+27:    <% end %>
+28:    
+29:    <%= render "devise/shared/links" %>
+  
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected '(', expecting `end'
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected '(', expecting `end'
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected '(', expecting `end'
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected '(', expecting `end'
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected '(', expecting `end'
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected '(', expecting `end'
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+Started GET "/users/sign_up" for 127.0.0.1 at 2022-12-15 14:17:02 +0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1396)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 1485)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 2808)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h2>Sign up</h2>
+
+<%= simple_form_for User (resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+):
+1:    <h2>Sign up</h2>
+2:    
+3:    <%= simple_form_for User (resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+4:      <%= render "devise/shared/error_messages", resource: resource %>
+5:    
+6:      <div class="field">
+7:        <%= f.label :email %><br />
+8:        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+9:      </div>
+10:    
+11:      <div class="field">
+12:        <%= f.label :password %>
+13:        <% if @minimum_password_length %>
+14:        <em>(<%= @minimum_password_length %> characters minimum)</em>
+15:        <% end %><br />
+16:        <%= f.password_field :password, autocomplete: "new-password" %>
+17:      </div>
+18:    
+19:      <div class="field">
+20:        <%= f.label :password_confirmation %><br />
+21:        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+22:      </div>
+23:    
+24:      <div class="actions">
+25:        <%= f.submit "Sign up" %>
+26:      </div>
+27:    <% end %>
+28:    
+29:    <%= render "devise/shared/links" %>
+  
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected label, expecting '='
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected label, expecting '='
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected label, expecting '='
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected label, expecting '='
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected label, expecting '='
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected label, expecting '='
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+Started GET "/users/sign_up" for 127.0.0.1 at 2022-12-15 14:26:35 +0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 1342)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | Allocations: 1431)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 1.7ms | Allocations: 5251)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h2>Sign up</h2>
+
+<%= simple_form_for @user (resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+):
+1:    <h2>Sign up</h2>
+2:    
+3:    <%= simple_form_for @user (resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+4:      <%= render "devise/shared/error_messages", resource: resource %>
+5:    
+6:      <div class="field">
+7:        <%= f.label :email %><br />
+8:        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+9:      </div>
+10:    
+11:      <div class="field">
+12:        <%= f.label :password %>
+13:        <% if @minimum_password_length %>
+14:        <em>(<%= @minimum_password_length %> characters minimum)</em>
+15:        <% end %><br />
+16:        <%= f.password_field :password, autocomplete: "new-password" %>
+17:      </div>
+18:    
+19:      <div class="field">
+20:        <%= f.label :password_confirmation %><br />
+21:        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+22:      </div>
+23:    
+24:      <div class="actions">
+25:        <%= f.submit "Sign up" %>
+26:      </div>
+27:    <% end %>
+28:    
+29:    <%= render "devise/shared/links" %>
+  
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected '(', expecting `end'
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected '(', expecting `end'
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected '(', expecting `end'
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected '(', expecting `end'
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected '(', expecting `end'
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected '(', expecting `end'
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+Started GET "/users/sign_up" for 127.0.0.1 at 2022-12-15 14:27:00 +0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1326)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | Allocations: 1415)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.4ms | Allocations: 5343)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h2>Sign up</h2>
+
+<%= simple_form_for @user (resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+):
+1:    <h2>Sign up</h2>
+2:    
+3:    <%= simple_form_for @user (resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+4:      <%= render "devise/shared/error_messages", resource: resource %>
+5:    
+6:      <div class="field">
+7:        <%= f.label :email %><br />
+8:        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+9:      </div>
+10:    
+11:      <div class="field">
+12:        <%= f.label :password %>
+13:        <% if @minimum_password_length %>
+14:        <em>(<%= @minimum_password_length %> characters minimum)</em>
+15:        <% end %><br />
+16:        <%= f.password_field :password, autocomplete: "new-password" %>
+17:      </div>
+18:    
+19:      <div class="field">
+20:        <%= f.label :password_confirmation %><br />
+21:        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+22:      </div>
+23:    
+24:      <div class="actions">
+25:        <%= f.submit "Sign up" %>
+26:      </div>
+27:    <% end %>
+28:    
+29:    <%= render "devise/shared/links" %>
+  
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected '(', expecting `end'
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected '(', expecting `end'
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected '(', expecting `end'
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected '(', expecting `end'
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected '(', expecting `end'
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected '(', expecting `end'
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+Started GET "/users/sign_up" for 127.0.0.1 at 2022-12-15 14:28:46 +0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 1342)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | Allocations: 1431)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.4ms | Allocations: 5746)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h2>Sign up</h2>
+
+<%= simple_form_for @user (resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+):
+1:    <h2>Sign up</h2>
+2:    
+3:    <%= simple_form_for @user (resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+4:      <%= render "devise/shared/error_messages", resource: resource %>
+5:    
+6:      <div class="field">
+7:        <%= f.label :email %><br />
+8:        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+9:      </div>
+10:    
+11:      <div class="field">
+12:        <%= f.label :password %>
+13:        <% if @minimum_password_length %>
+14:        <em>(<%= @minimum_password_length %> characters minimum)</em>
+15:        <% end %><br />
+16:        <%= f.password_field :password, autocomplete: "new-password" %>
+17:      </div>
+18:    
+19:      <div class="field">
+20:        <%= f.label :password_confirmation %><br />
+21:        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+22:      </div>
+23:    
+24:      <div class="actions">
+25:        <%= f.submit "Sign up" %>
+26:      </div>
+27:    <% end %>
+28:    
+29:    <%= render "devise/shared/links" %>
+  
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected '(', expecting `end'
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected '(', expecting `end'
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected '(', expecting `end'
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected '(', expecting `end'
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected '(', expecting `end'
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected '(', expecting `end'
+app/views/devise/registrations/new.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/devise/registrations/new.html.erb:32: syntax error, unexpected `end', expecting end-of-input
+Started GET "/users/sign_up" for 127.0.0.1 at 2022-12-15 19:55:03 +0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.6ms | Allocations: 211)
+  Rendered devise/shared/_links.html.erb (Duration: 3.2ms | Allocations: 501)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 23.2ms | Allocations: 3506)
+  Rendered layout layouts/application.html.erb (Duration: 46.5ms | Allocations: 17671)
+Completed 200 OK in 76ms (Views: 53.9ms | Allocations: 19018)
+
+
