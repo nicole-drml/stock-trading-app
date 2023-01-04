@@ -1373,3 +1373,13 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 116ms (Views: 99.7ms | Allocations: 5092)
 
 
+Started GET "/" for ::1 at 2023-01-04 19:34:26 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 3007.0ms | Allocations: 33740)
+  Rendered layout layouts/application.html.erb (Duration: 3319.4ms | Allocations: 48851)
+Completed 200 OK in 3442ms (Views: 3356.7ms | ActiveRecord: 0.0ms | Allocations: 54834)
+
+
