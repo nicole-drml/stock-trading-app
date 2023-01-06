@@ -1,0 +1,59 @@
+.body-home {
+  background-color: #463f3a;
+}
+
+.img-div {
+  display: flex;
+  font-size: 2rem;
+  padding-left: 4rem;
+  align-items: center;
+}
+
+.nav-div {
+  height: 3rem;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+}
+
+.nav-img {
+  height: 5rem;
+  padding-top: 2rem;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  gap: 4rem;
+  font-size: 22px;
+  align-items: center;
+  padding-top: 2rem;
+  margin-left: 3rem;
+}
+
+.cta-button {
+  padding-top: 2rem;
+  padding-right: 5rem;
+  align-items: center;
+  display: flex;
+  gap: 2.5rem;
+
+}
+
+.sign-in-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 22px;
+  color: #ffdc5e;
+}
+
+.register-btn {
+  border: none;
+  font-size: 22px;
+  background-color: #ffdc5e;
+  border-radius: 20px;
+  padding: 5px 25px 8px 25px;
+  color: #22223b;
+}
+

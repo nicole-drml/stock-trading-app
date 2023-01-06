@@ -1,10 +1,30 @@
-<h1>Home#index</h1>
+<body class="body-home">
+  <div class="nav-div">
+    <div class="img-div">
+      <%= image_tag "buzz.png", :class => "nav-img" %>
+      <ul class="nav-list">
+      <li>About</li>
+      <li>Blog</li>
+      <li>Pricing</li>
+      <li>News</li>
+      <li>Support</li>
+      </ul>
+    </div>
+    
+    <div class="cta-button">
+      <button class="sign-in-btn">Sign in</button>
+      <button class="register-btn">Register</button>
+    </div>
+  </div>
 
-<% if current_user %>
-    <%= link_to "Sign out", destroy_user_session_path, 'data-turbo-method': :delete %>
-    <p> Hello <%= current_user.email %> ! </p>
-    <p> You are a <%= current_user.role %> ! </p>
-<% else %>
-    <%= link_to "Signup", new_user_registration_path %>
-    <%= link_to "Login",  new_user_session_path %>
-<% end %>
+  <section>
+    <h1>Hassle-free stock app made for you</h1>
+    <h1>Make your cash work for you in many ways</h1>
+  </section>
+
+
+
+</body>
+
+
+
