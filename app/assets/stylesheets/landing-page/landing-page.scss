@@ -25,7 +25,7 @@
   list-style: none;
   display: flex;
   justify-content: space-around;
-  gap: 4rem;
+  gap: 3rem;
   font-size: 22px;
   align-items: center;
   padding-top: 2rem;
@@ -45,15 +45,132 @@
   background-color: transparent;
   border: none;
   font-size: 22px;
-  color: #ffdc5e;
+  color: #ffc300;
 }
 
 .register-btn {
   border: none;
   font-size: 22px;
-  background-color: #ffdc5e;
+  background-color: #ffc300;
   border-radius: 20px;
   padding: 5px 25px 8px 25px;
   color: #22223b;
 }
 
+.main-section {
+  margin-top: 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12rem;
+}
+
+.main-holder {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-title {
+  font-size: 3.5rem;
+  word-spacing: 5px;
+  line-height: 5.5rem;
+}
+
+.main-img {
+  height: 39rem;
+}
+
+.sub-heading {
+  display: flex;
+  margin-top: 2rem;
+  gap: 22rem;
+}
+
+.invest-img {
+  height: 43px;
+}
+
+.portfolio-img {
+  height: 40.5px;
+}
+
+.sub {
+  display: flex;
+  gap: 14.7rem;
+  font-weight: 600;
+  font-size: 20px;
+  margin-top: 0.5rem;
+}
+
+.p-title {
+  color: #ffc300;
+}
+
+.description {
+  display: flex;
+  gap: 8.5rem;
+  margin-top: 0.5rem;
+}
+
+.get-app {
+  display: flex;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.get-app-btn {
+  border: none;
+  font-size: 25px;
+  background-color: #ffc300;
+  border-radius: 12px;
+  padding: 10px 25px 10px 25px;
+  color: #22223b;
+  font-weight: 600;
+  width: 9rem;
+  cursor: pointer;
+}
+
+.learn {
+  color: #ffc300;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.arrow-right {
+  height: 28px;
+  padding-top: 4px;
+  padding-left: 4px;
+}
+
+.learn-more {
+  display: flex;
+  margin-left: 3rem;
+  align-items: center;
+}
+
+.footer {
+  margin-top: 3.5rem;
+  border-top: 1px solid #eee;
+}
+
+.footer-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 13rem;
+  margin-top: 1rem;
+}
+
+.footer-img {
+  height: 2.5rem;
+}
+
+.email-input {
+  height: 2rem;
+  padding: 5px 10px 5px 10px;
+  width: 13rem;
+  border: none;
+  border-radius: 5px;
+  color: #22223b;
+  outline: none;
+}
