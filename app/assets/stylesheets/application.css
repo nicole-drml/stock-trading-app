@@ -22,7 +22,8 @@
  }
 
 body {
-  color: rgb(45, 44, 44);
+  color: #fff;
+  background-color: #463f3a;
 }
 
 a {

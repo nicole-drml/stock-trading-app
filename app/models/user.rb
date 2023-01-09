@@ -7,7 +7,7 @@ class User < ApplicationRecord
   enum status: [:pending, :approved, :denied]
   after_initialize :set_default_status, :if => :new_record?
   def set_default_status
-    self.status ||= :pending
+    self.status ||= :approved
   end
 
   enum role: [:trader, :admin]
