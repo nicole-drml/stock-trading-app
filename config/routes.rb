@@ -3,5 +3,10 @@ Rails.application.routes.draw do
   
   get 'home/index'
   root 'home#index' 
-  get '/dashboard' => 'dashboard#index', as: 'dashboard'
+
+  authenticated :user, ->(user) {user.admin? } do
+    get '/admin' => 'admin#index' 
+    post 'admin/create' => 'users#create'
+    get 'admin/edit/user/:id' => 'users#edit', as: 'edit_selected_user'
+  end
 end

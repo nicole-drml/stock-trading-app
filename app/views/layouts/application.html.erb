@@ -8,12 +8,33 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
   </head>
-
+  <header class="nav-div">
+    <div class="img-div">
+      <%= image_tag "buzz.png", :class => "nav-img" %>
+      <ul class="nav-list">
+      <li>About</li>
+      <li>Blog</li>
+      <li>Pricing</li>
+      <li>News</li>
+      <li>Support</li>
+      </ul>
+    </div>
+    
+    <div class="cta-button">
+      <% if current_user %>
+        <button class="sign-in-btn"> <%= link_to "Edit profile",  edit_user_registration_path %> </button>
+        <button class="register-btn"><%= link_to "Sign out", destroy_user_session_path, 'data-turbo-method': :delete %></button>
+      <% else %>
+        <button class="sign-in-btn"> <%= link_to "Sign in",  new_user_session_path %> </button>
+        <button class="register-btn"><%= link_to "Register", new_user_registration_path %></button>
+      <% end %>
+    </div>
+  </header>
+  
   <body>       
   
     <p class="notice"><%= notice %></p>
