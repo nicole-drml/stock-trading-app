@@ -1,6 +1,36 @@
+<p style="color: green"><%= notice %></p>
+
+<h1> Logged in: <span> <%= current_user.email %> </span></h1>
+
+<h1>Users</h1>
+
+<h3>Admins:</h3>
 <ul>
-    <% @users.each do |user| %>
-        <li> <%= user.role %> </li>
-        <li> <%= user.email %> </li>
+<% @users.each do |user| %>
+    <% if user.role == "admin" %>
+        <li> 
+        <%= user.id %> <%= user.email %> 
+        <span>
+          <%= link_to "Show this user", user %>
+        </span>
+        </li>
     <% end %>
+<% end %>
 </ul>
+
+<ul>
+<h3>Traders:</h3>
+<% @users.each do |user| %>
+    <% if user.role == "trader" %>
+        <li> 
+            <%= user.id %> <%= user.email %> 
+            <span>
+              <%= link_to "Show this user", user %>
+            </span>
+        </li>
+    <% end %>
+<% end %>
+</ul>
+
+
+<%= link_to "New user", new_user_path %>

@@ -11,3 +11,6 @@
 #  password_confirmation: "admin",
 #  role: User.roles[:admin])
 # end
+
+User.create(email: 'customer@buzz.com', password: 'password', password_confirmation: 'password', role: 'trader')
+User.create(email: 'admin@buzz.com', password: 'password', password_confirmation: 'password', role: 'admin')
