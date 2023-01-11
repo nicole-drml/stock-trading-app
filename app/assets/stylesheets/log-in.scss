@@ -1,0 +1,87 @@
+.log-in-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.log-in-div {
+  color: #fff;
+  background-color: #333533;
+  border-radius: 15px;
+  height: 30rem;
+  width: 50rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7rem;
+  margin-top: 10rem;
+}
+
+.buzz-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sign-in-img {
+  height: 3rem;
+}
+
+.sign-in-main {
+  height: 16rem;
+}
+
+.text-field {
+  height: 3rem;
+  padding: 5px 10px 5px 10px;
+  width: 17rem;
+  border: none;
+  border-radius: 5px;
+  color: #22223b;
+  outline: none;
+}
+
+.form-field {
+  margin-top: 1rem;
+}
+
+.field {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.log-in-cta {
+  font-size: 20px;
+  width: 7rem;
+  background-color: #ffdc5e;
+  color: #22223b;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 20px 8px 20px;
+}
+
+.log-in-cta:hover {
+  color: #fff;
+}
+
+.sign-up {
+  margin-left: 6.5rem;
+  margin-top: 0.5rem;
+}
+
+.added {
+  color: #fff;
+}
+
+.forgot {
+  margin-left: 3.7rem;
+  margin-top: 0.5rem;
+}
