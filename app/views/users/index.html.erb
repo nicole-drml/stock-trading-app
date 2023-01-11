@@ -1,6 +1,69 @@
-<ul>
-    <% @users.each do |user| %>
-        <li> <%= user.role %> </li>
-        <li> <%= user.email %> </li>
-    <% end %>
-</ul>
+<p style="color: green"><%= notice %></p>
+
+<div id="user_index_page">
+    <h1> Logged in: <span> <%= current_user.email %> </span></h1>
+
+    <h1>Users</h1>
+
+    <%= link_to "ADD USER", new_user_path %>
+
+
+    <h3>Admins:</h3>
+    <div class="users_table">
+        <div class="users_header">
+            <h3 class="id_user_able">ID</h3>
+            <h3 class="name_user_able">First Name</h3>
+            <h3 class="name_user_able">Last Name</h3>
+            <h3 class="email_user_able">Email</h3>
+            <h3 class="role_user_able">Role</h3>
+            <h3 class="actions_user_able">Actions</h3>
+        </div>
+        <ul>
+        <% @users.each do |user| %>
+            <% if user.role == "admin" %>
+                <li class="user_iteration"> 
+                    <p class="id_user_able"> <%= user.id %> </p>
+                    <p class="name_user_able"> <%= user.first_name.capitalize %>  </p>
+                    <p class="name_user_able"> <%= user.last_name.capitalize %>  </p>
+                    <p class="email_user_able"> <%= user.email.downcase %>  </p>
+                    <p class="role_user_able"> <%= user.role.capitalize %> </p>
+                    <p class="actions_user_able">
+                    <%= link_to "Show this user", user %>
+                    </p>
+                </li>
+            <% end %>
+        <% end %>
+        </ul>
+    </div>
+
+
+    <h3>Traders:</h3>
+    <div class="users_table">
+        <div class="users_header">
+            <h3 class="id_user_able">ID</h3>
+            <h3 class="name_user_able">First Name</h3>
+            <h3 class="name_user_able">Last Name</h3>
+            <h3 class="email_user_able">Email</h3>
+            <h3 class="role_user_able">Role</h3>
+            <h3 class="actions_user_able">Actions</h3>
+        </div>
+        <ul>
+        <% @users.each do |user| %>
+            <% if user.role == "trader" %>
+                <li class="user_iteration"> 
+                    <p class="id_user_able"> <%= user.id %> </p>
+                    <p class="name_user_able"> <%= user.first_name.capitalize %>  </p>
+                    <p class="name_user_able"> <%= user.last_name.capitalize %>  </p>
+                    <p class="email_user_able"> <%= user.email.downcase %>  </p>
+                    <p class="role_user_able"> <%= user.role.capitalize %> </p>
+                    <p class="actions_user_able">
+                    <%= link_to "Show this user", user %>
+                    </p>
+                </li>
+            <% end %>
+        <% end %>
+        </ul>
+    </div>
+
+    </div>
+
