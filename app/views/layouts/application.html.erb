@@ -29,8 +29,8 @@
         <button class="sign-in-btn"> <%= link_to "Edit profile",  edit_user_registration_path %> </button>
         <button class="register-btn"><%= link_to "Sign out", destroy_user_session_path, 'data-turbo-method': :delete %></button>
       <% else %>
-        <button class="sign-in-btn"> <%= link_to "Sign in",  new_user_session_path %> </button>
-        <button class="register-btn"><%= link_to "Register", new_user_registration_path %></button>
+        <button class="sign-in-btn"> <%= link_to "Sign in",  sign_in_path %> </button>
+        <button class="register-btn"><%= link_to "Register", register_path %></button>
       <% end %>
     </div>
   </header>

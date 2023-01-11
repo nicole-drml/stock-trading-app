@@ -59,12 +59,17 @@ font-size: 22px;
 background-color: #ffdc5e;
 border-radius: 20px;
 padding: 5px 25px 8px 25px;
+transition: 300ms;
+
+    &:hover {
+        background-color: #fff;
+
+        a {
+            color: rgb(243, 24, 24);
+        }
+    }
 
     a {
         color: #22223b;
-
-        &:hover {
-        color: #fff;
-        }
     }
 }
