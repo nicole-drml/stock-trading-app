@@ -1,9 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @user %>
+<h1>   <%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %>  </h1>
 <span>
   <%= @user.email %> 
 </span>
+
+
+
 <div>
   <%= link_to "Edit this user", edit_user_path(@user) %> |
   <%= link_to "Back to users", users_path %>

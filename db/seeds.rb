@@ -14,3 +14,7 @@
 
 User.create(email: 'customer@buzz.com', password: 'password', password_confirmation: 'password', role: 'trader')
 User.create(email: 'admin@buzz.com', password: 'password', password_confirmation: 'password', role: 'admin')
+
+
+User.update(email: 'customer@buzz.com', role: 'trader', first_name: 'trader', last_name: 'joe')
+User.update(email: 'admin@buzz.com', role: 'admin', first_name: 'admin', last_name: 'jane')
