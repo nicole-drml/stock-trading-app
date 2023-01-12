@@ -1,75 +1,75 @@
 .img-div {
-display: flex;
-font-size: 2rem;
-padding-left: 4rem;
-align-items: center;
+  display: flex;
+  font-size: 2rem;
+  align-items: center;
 }
 
 .nav-div {
-display: flex;
-justify-content: space-between;
-color: #fff;
-background-color: #463f3a;
-padding: 2px;
+  display: flex;
+  color: #fff;
+  background-color: #463f3a;
+  align-items: center;
+  padding-top: 1.5rem;
 }
 
 .nav-img {
-height: 5rem;
-padding-top: 2rem;
+  height: 4rem;
 }
 
 .nav-list {
-list-style: none;
-display: flex;
-justify-content: space-around;
-gap: 4rem;
-font-size: 22px;
-align-items: center;
-padding-top: 2rem;
-margin-left: 3rem;
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  gap: 4rem;
+  font-size: 22px;
+  align-items: center;
+  margin-left: 3rem;
+}
+
+.current_user_nav {
+  font-size: 20px;
 }
 
 .cta-button {
-padding-top: 2rem;
-padding-right: 5rem;
-align-items: center;
-display: flex;
-gap: 2.5rem;
-
+  padding-right: 3rem;
+  align-items: center;
+  display: flex;
+  gap: 2.5rem;
+  margin-left: auto;
 }
 
 .sign-in-btn {
-background-color: transparent;
-border: none;
-font-size: 22px;
-color: #ffdc5e;
+  background-color: transparent;
+  border: none;
+  font-size: 22px;
+  color: #ffdc5e;
 
-    a {
-        color: #fff;
+  a {
+    color: #fff;
 
-        &:hover {
-        color: #ffdc5e;
-        }
+    &:hover {
+      color: #ffdc5e;
     }
+  }
 }
 
 .register-btn {
-border: none;
-font-size: 22px;
-background-color: #ffdc5e;
-border-radius: 20px;
-padding: 5px 25px 8px 25px;
-transition: 300ms;
+  border: none;
+  font-size: 22px;
+  background-color: #ffdc5e;
+  border-radius: 20px;
+  padding: 5px 25px 8px 25px;
+  transition: 300ms;
 
-    &:hover {
-        background-color: #fff;
-
-        a {
-            color: rgb(243, 24, 24);
-        }
-    }
+  &:hover {
+    background-color: #fff;
 
     a {
-        color: #22223b;
+      color: rgb(243, 24, 24);
     }
+  }
+
+  a {
+    color: #22223b;
+  }
 }

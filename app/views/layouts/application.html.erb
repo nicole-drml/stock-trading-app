@@ -15,14 +15,13 @@
   <header class="nav-div">
     <div class="img-div">
       <%= image_tag "buzz.png", :class => "nav-img" %>
-      <ul class="nav-list">
-      <li>About</li>
-      <li>Blog</li>
-      <li>Pricing</li>
-      <li>News</li>
-      <li>Support</li>
-      </ul>
     </div>
+    <% if current_user %>
+      <div class="current_user_nav">
+        <span> <%= current_user.role.upcase %> : </span>
+        <span> <%= current_user.first_name.capitalize %> </span>
+      </div>
+    <% end %>
     
     <div class="cta-button">
       <% if current_user %>
