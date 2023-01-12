@@ -16,6 +16,7 @@
             <h3 class="name_user_able">Last Name</h3>
             <h3 class="email_user_able">Email</h3>
             <h3 class="role_user_able">Role</h3>
+            <h3 class="role_user_able">Status</h3>
             <h3 class="actions_user_able">Actions</h3>
         </div>
         <ul>
@@ -27,9 +28,13 @@
                     <p class="name_user_able"> <%= user.last_name.capitalize %>  </p>
                     <p class="email_user_able"> <%= user.email.downcase %>  </p>
                     <p class="role_user_able"> <%= user.role.capitalize %> </p>
-                    <p class="actions_user_able">
-                    <%= link_to "Show this user", user %>
-                    </p>
+                    <p class="role_user_able"> <%= user.status.capitalize %> </p>
+
+                    <% if user.email != current_user.email %>
+                        <p class="actions_user_able">
+                        <%= link_to "Show this user", user %>
+                        </p>
+                    <% end %>
                 </li>
             <% end %>
         <% end %>
@@ -45,6 +50,7 @@
             <h3 class="name_user_able">Last Name</h3>
             <h3 class="email_user_able">Email</h3>
             <h3 class="role_user_able">Role</h3>
+            <h3 class="role_user_able">Status</h3>
             <h3 class="actions_user_able">Actions</h3>
         </div>
         <ul>
@@ -56,6 +62,8 @@
                     <p class="name_user_able"> <%= user.last_name.capitalize %>  </p>
                     <p class="email_user_able"> <%= user.email.downcase %>  </p>
                     <p class="role_user_able"> <%= user.role.capitalize %> </p>
+                    <p class="role_user_able"> <%= user.status.capitalize %> </p>
+                    
                     <p class="actions_user_able">
                     <%= link_to "Show this user", user %>
                     </p>
