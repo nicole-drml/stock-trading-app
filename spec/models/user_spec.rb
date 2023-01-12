@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  fixtures :users
 
   it "can run tests" do
     expect(false).to be(false)
@@ -8,7 +9,6 @@ RSpec.describe User, type: :model do
 
   it "sets the default role to trader" do
     user3 = users(:three)
-
     expect(user3.role).to eq 'trader'
   end
 

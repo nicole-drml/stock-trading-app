@@ -1,21 +1,21 @@
 one: 
   first_name: Joe
   last_name: Trader
-  email: joe@trader.com
-  password: password
+  email: joe@trader1.com
+  encrypted_password: password
   status: approved
   role: trader
 
 two: 
   first_name: Joe
   last_name: Status
-  email: joe@trader.com
-  password: password
+  email: joe@trader2.com
+  encrypted_password: password
   role: trader
 
 three: 
   first_name: Joe
   last_name: Role
-  email: joe@trader.com
-  password: password
+  email: joe@trader3.com
+  encrypted_password: password
   status: approved
