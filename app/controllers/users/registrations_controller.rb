@@ -12,8 +12,25 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   POST /resource
   def create
-    @user = User.new
+    binding.pry
+    @user = User.new(user_params)
     super
+
+    if current_user && !current_user.admin?
+      return
+    end
+    
+    respond_to do |format|
+      if @user.save
+        RegistrationMailer.new_pending_user(@user).deliver
+        format.html { redirect_to user_url(@user), notice: "User was successfully created." }
+        format.json { render :show, status: :created, location: @user }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+    
   end
 
   GET /resource/edit
@@ -62,5 +79,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super(resource)
   end
 
+  private
+
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :role, :status)
+  end
 
 end
