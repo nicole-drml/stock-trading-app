@@ -1,6 +1,6 @@
 class RegistrationMailer < ApplicationMailer
 
-  def new_pending_user(user)
+  def application_received(user)
     @user = user
     mail(
       to: @user.email,

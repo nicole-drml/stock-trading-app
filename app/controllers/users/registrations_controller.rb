@@ -3,7 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
-  
+
   #GET /resource/sign_up
   def new
     @user = User.new
@@ -13,21 +13,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #POST /resource
   def create
     @user = User.new(user_params)
-    super
+    super do |resource|
+      RegistrationMailer.application_received(resource).deliver
+    end
 
     if current_user && !current_user.admin?
       return
-    end
-    
-    respond_to do |format|
-      if @user.save
-        RegistrationMailer.new_pending_user(@user).deliver
-        format.html { redirect_to user_url(@user), notice: "User was successfully created." }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
     end
     
   end
