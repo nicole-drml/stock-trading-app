@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
     before_action :configure_permitted_parameters, if: :devise_controller?
     before_action :configure_permitted_signin_parameters, if: :devise_controller?
-    before_action :configure_permitted_role_parameters, if: :devise_controller?
+    #before_action :configure_permitted_role_parameters, if: :devise_controller?
 
 
     protected
@@ -15,10 +15,10 @@ class ApplicationController < ActionController::Base
         end
     end
 
-    def configure_permitted_role_parameters
-        devise_parameter_sanitizer.permit(:sign_up) do |user_params|
-          user_params.permit({ roles: [:trader, :admin] }, :email, :password, :password_confirmation)
-        end
-      end
+    #def configure_permitted_role_parameters
+    #    devise_parameter_sanitizer.permit(:sign_up) do |user_params|
+    #      user_params.permit(:email, :password, :password_confirmation)
+    #    end
+    #end
 
 end
