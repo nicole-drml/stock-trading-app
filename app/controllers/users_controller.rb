@@ -23,12 +23,14 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    if !current_user || current_user.admin?
-      @user.save
+    if current_user && !current_user.admin?
+      return
     end
-
+    
+    binding.pry
     respond_to do |format|
       if @user.save
+        RegistrationMailer.new_pending_user(@user).deliver
         format.html { redirect_to user_url(@user), notice: "User was successfully created." }
         format.json { render :show, status: :created, location: @user }
       else
@@ -70,6 +72,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation, :role, :first_name, :last_name)
+      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :role, :status)
     end
 end

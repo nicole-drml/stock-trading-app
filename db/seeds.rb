@@ -12,8 +12,8 @@
 #  role: User.roles[:admin])
 # end
 
-User.create(email: 'trader@buzz.com', password: 'password', password_confirmation: 'password', role: 'trader')
-User.create(email: 'admin@buzz.com', password: 'password', password_confirmation: 'password', role: 'admin')
+User.create(first_name: 'td', last_name: 'bz', email: 'trader@buzz.com', password: 'password', password_confirmation: 'password', role: 'trader')
+User.create(first_name: 'td', last_name: 'bz', email: 'admin@buzz.com', password: 'password', password_confirmation: 'password', role: 'admin')
 
 User.update(email: 'trader@buzz.com', role: 'trader', first_name: 'joe', last_name: 'trader')
 User.update(email: 'admin@buzz.com', role: 'admin', first_name: 'jane', last_name: 'admin')
