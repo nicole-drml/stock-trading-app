@@ -24,8 +24,8 @@
             <% if user.role == "admin" %>
                 <li class="user_iteration"> 
                     <p class="id_user_able"> <%= user.id %> </p>
-                    <p class="name_user_able"> <%= user.first_name.capitalize %>  </p>
-                    <p class="name_user_able"> <%= user.last_name.capitalize %>  </p>
+                    <p class="name_user_able"> <%= user.first_name.titleize %>  </p>
+                    <p class="name_user_able"> <%= user.last_name.titleize %>  </p>
                     <p class="email_user_able"> <%= user.email.downcase %>  </p>
                     <p class="role_user_able"> <%= user.role.capitalize %> </p>
                     <p class="role_user_able"> <%= user.status.capitalize %> </p>
@@ -58,8 +58,8 @@
             <% if user.role == "trader" %>
                 <li class="user_iteration"> 
                     <p class="id_user_able"> <%= user.id %> </p>
-                    <p class="name_user_able"> <%= user.first_name.capitalize %>  </p>
-                    <p class="name_user_able"> <%= user.last_name.capitalize %>  </p>
+                    <p class="name_user_able"> <%= user.first_name.titleize %>  </p>
+                    <p class="name_user_able"> <%= user.last_name.titleize %>  </p>
                     <p class="email_user_able"> <%= user.email.downcase %>  </p>
                     <p class="role_user_able"> <%= user.role.capitalize %> </p>
                     <p class="role_user_able"> <%= user.status.capitalize %> </p>
