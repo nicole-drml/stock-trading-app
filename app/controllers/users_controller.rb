@@ -27,12 +27,9 @@ class UsersController < ApplicationController
       return
     end
     
-    binding.pry
     respond_to do |format|
       if @user.save
-        RegistrationMailer.new_pending_user(@user).deliver
-        format.html { redirect_to user_url(@user), notice: "User was successfully created." }
-        format.json { render :show, status: :created, location: @user }
+        RegistrationMailer.application_received(@user).deliver
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @user.errors, status: :unprocessable_entity }

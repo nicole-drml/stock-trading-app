@@ -35,7 +35,7 @@
 <% @users.each do |user| %>
     <% if user.role == "admin" %>
         <li> 
-        <%= user.id %> <%= user.email %> 
+        <%= user.id %> <%= user.email.downcase %> 
         </li>
     <% end %>
 <% end %>
@@ -46,7 +46,7 @@
 <% @users.each do |user| %>
     <% if user.role == "trader" %>
         <li> 
-            <%= user.id %> <%= user.email %> 
+            <%= user.id %> <%= user.email.downcase %> 
         </li>
     <% end %>
 <% end %>
