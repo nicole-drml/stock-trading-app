@@ -8,14 +8,13 @@ Rails.application.routes.draw do
   get 'home/index'
   root 'home#index' 
 
-
   authenticated :user, ->(user) {user.admin? } do
 
     scope "/admin" do
       resources :users
     end
     get '/admin' => 'admin#index' 
-    post 'admin/create' => 'users#create'
+    post 'admin/create' => 'users#create', as: 'admin_create_user'
     get 'admin/edit/user/:id' => 'users#edit', as: 'edit_selected_user'
   end
 end
