@@ -27,6 +27,8 @@ class UsersController < ApplicationController
       return
     end
     
+    @user.status = :approved
+
     respond_to do |format|
       if @user.save
         RegistrationMailer.application_received(@user).deliver
