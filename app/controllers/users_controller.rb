@@ -27,7 +27,7 @@ class UsersController < ApplicationController
       return
     end
     
-    @user.status = :approved
+    @user.status = :active
 
     respond_to do |format|
       if @user.save

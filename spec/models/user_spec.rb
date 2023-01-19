@@ -12,9 +12,9 @@ RSpec.describe User, type: :model do
     expect(user3.role).to eq 'trader'
   end
 
-  it "sets the default status to approved" do
+  it "sets the default status to active" do
     user = User.create(first_name: 'Joe', last_name: 'Terns', email: 'joe@terns.com', password: 'password')
 
-    expect(user.status).to eq 'approved'
+    expect(user.status).to eq 'active'
   end
 end

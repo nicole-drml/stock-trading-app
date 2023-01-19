@@ -18,4 +18,4 @@ three:
   last_name: Role
   email: joe@trader3.com
   encrypted_password: password
-  status: approved
+  status: active

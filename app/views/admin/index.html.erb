@@ -1,0 +1,16 @@
+
+<h1>dashboard</h1>
+
+<% @pending = Array.new %>
+<% User.all.each do |user| %>
+    <% if user.status == "pending" %>
+        <% @pending << user %>
+    <% end %>
+<% end %>
+
+<%= link_to admin_pending_users_path do %>
+    <div>
+        <h2> <%= @pending.count %> <span>pending users</span> </h2> 
+    </div>
+<% end %>
+<h3> <%= link_to "active users", users_path %> </h3>

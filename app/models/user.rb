@@ -9,7 +9,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          :confirmable
 
-  enum status: [:pending, :approved, :denied]
+  enum status: [:pending, :active]
   after_initialize :set_default_status, :if => :new_record?
   
   def set_default_status

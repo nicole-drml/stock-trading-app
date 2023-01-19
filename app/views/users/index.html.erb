@@ -55,7 +55,7 @@
         </div>
         <ul>
         <% @users.each do |user| %>
-            <% if user.role == "trader" %>
+            <% if user.role == "trader" && user.status == "active" %>
                 <li class="user_iteration"> 
                     <p class="id_user_able"> <%= user.id %> </p>
                     <p class="name_user_able"> <%= user.first_name.titleize %>  </p>
