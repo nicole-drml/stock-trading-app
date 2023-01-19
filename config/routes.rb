@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       resources :users
     end
     get '/admin/dashboard' => 'admin#index' 
+    get '/admin/users' => 'users#index', as: 'admin/users' 
     get '/admin/pending_users' => 'admin#pending_users' 
     post 'admin/users' => 'users#create', as: 'admin_create_user'
     get 'admin/edit/user/:id' => 'users#edit', as: 'edit_selected_user'

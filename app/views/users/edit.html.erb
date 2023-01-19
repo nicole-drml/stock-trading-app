@@ -22,6 +22,11 @@
       <%= f.email_field :email, autocomplete: "email" %>
     </div>
 
+    <div class="field">
+      <%= f.label :status %><br />
+      <%= f.select :status, ['pending', 'active'], autocomplete: "status"%>
+    </div>
+
   </div>
 
   <div class="form-actions">
@@ -34,5 +39,5 @@
 
 <div>
   <%= link_to "Show this user", @user %> |
-  <%= link_to "Back to users", users_path %>
+  <%= link_to "Back to dashboard", admin_dashboard_path %>
 </div>
