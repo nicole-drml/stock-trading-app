@@ -21,7 +21,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       
       if @user.save
         RegistrationMailer.application_received(@user).deliver
-        RegistrationMailer.new_pending_user(@user, @current_user).deliver
+        RegistrationMailer.new_pending_user(@user).deliver
         sign_in(@user)
       end
     end
