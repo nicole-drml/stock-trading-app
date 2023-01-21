@@ -25,7 +25,11 @@
     
     <div class="cta-button">
       <% if current_user %>
-        <button class="sign-in-btn"> <%= link_to "Edit profile",  edit_user_registration_path %> </button>
+        <% if current_user.admin? %>
+          <button class="sign-in-btn"> <%= link_to "Dashboard",  admin_dashboard_path %> </button>
+        <% else %>
+          <button class="sign-in-btn"> <%= link_to "Edit profile",  edit_user_registration_path %> </button>
+        <% end %>
         <button class="register-btn"><%= link_to "Sign out", destroy_user_session_path, 'data-turbo-method': :delete %></button>
       <% else %>
         <button class="sign-in-btn"> <%= link_to "Sign in",  sign_in_path %> </button>

@@ -14,13 +14,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.new(user_params)
     super do |resource|
-      RegistrationMailer.application_received(resource).deliver
-    end
 
-    if current_user && !current_user.admin?
-      return
+      if current_user && !current_user.admin?
+        return
+      end
+      
+      if @user.save
+        RegistrationMailer.application_received(@user).deliver
+        RegistrationMailer.new_pending_user(@user).deliver
+        sign_in(@user)
+      end
     end
-    
   end
 
   #GET /resource/edit

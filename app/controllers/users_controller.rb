@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
-
   # GET /users or /users.json
   def index
     @users = User.all
@@ -27,9 +26,11 @@ class UsersController < ApplicationController
       return
     end
     
+    @user.status = :active
+
     respond_to do |format|
       if @user.save
-        RegistrationMailer.application_received(@user).deliver
+        RegistrationMailer.account_created(@user).deliver
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -39,9 +40,11 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
+    @old_status = @user.status
 
     respond_to do |format|
       if @user.update(user_params)
+        application_approved
         format.html { redirect_to user_url(@user), notice: "User was successfully updated." }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -70,5 +73,13 @@ class UsersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :role, :status)
+    end
+
+    def application_approved
+      if @user.status != @old_status
+        if @user.status == "active"
+          RegistrationMailer.application_approved(@user, current_user).deliver
+        end 
+      end
     end
 end

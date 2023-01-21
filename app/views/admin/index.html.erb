@@ -1,54 +1,16 @@
-<h1>Admin#index</h1>
 
-<h1> Logged in: <span> <%= current_user.email %> </span></h1>
+<h1>dashboard</h1>
 
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
-  
-    <div class="field">
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
-    </div>
-  
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-    </div>
-  
-    <div class="actions">
-      <%= f.submit "Register" %>
-    </div>
-<% end %>
-
-
-<h3>Admins:</h3>
-
-<ul>
-<% @users.each do |user| %>
-    <% if user.role == "admin" %>
-        <li> 
-        <%= user.id %> <%= user.email.downcase %> 
-        </li>
+<% @pending = Array.new %>
+<% User.all.each do |user| %>
+    <% if user.status == "pending" %>
+        <% @pending << user %>
     <% end %>
 <% end %>
-</ul>
 
-<ul>
-<h3>Traders:</h3>
-<% @users.each do |user| %>
-    <% if user.role == "trader" %>
-        <li> 
-            <%= user.id %> <%= user.email.downcase %> 
-        </li>
-    <% end %>
+<%= link_to admin_pending_users_path do %>
+    <div>
+        <h2> <%= @pending.count %> <span>pending users</span> </h2> 
+    </div>
 <% end %>
-</ul>
-
+<h3> <%= link_to "active users", users_path %> </h3>

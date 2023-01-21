@@ -23,9 +23,9 @@
     </div>
 
     <div class="field">
-    <%= f.label :role %><br />
-    <%= f.text_field :role, autocomplete: "role" %>
-  </div>
+      <%= f.label :status %><br />
+      <%= f.select :status, ['pending', 'active'], autocomplete: "status"%>
+    </div>
 
   </div>
 
@@ -39,5 +39,5 @@
 
 <div>
   <%= link_to "Show this user", @user %> |
-  <%= link_to "Back to users", users_path %>
+  <%= link_to "Back to dashboard", admin_dashboard_path %>
 </div>

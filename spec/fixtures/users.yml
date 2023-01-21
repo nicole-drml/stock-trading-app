@@ -5,7 +5,6 @@ one:
   encrypted_password: password
   status: approved
   role: trader
-  balance: 50
 
 two: 
   first_name: Joe
@@ -13,12 +12,10 @@ two:
   email: joe@trader2.com
   encrypted_password: password
   role: trader
-  balance: 50
 
 three: 
   first_name: Joe
   last_name: Role
   email: joe@trader3.com
   encrypted_password: password
-  status: approved
-  balance: 50
+  status: active

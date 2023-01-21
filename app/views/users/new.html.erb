@@ -1,6 +1,40 @@
 <h1>New user</h1>
 
-<%= render "form", user: @user %>
+<%= form_with(model: @user, method: :post) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="form-field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autofocus: true, placeholder: "Juan", class: "text-field" %>
+  </div>
+
+  <div class="form-field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, placeholder: "Cruz", class: "text-field" %>
+  </div>
+
+  <div class="form-field">
+  <%= f.label :email %><br />
+    <%= f.email_field :email, placeholder: "juan@email.com", class: "text-field" %>
+  </div>
+
+  <div class="form-field">
+    <% if @minimum_password_length %>
+    <% end %>
+    <%= f.label :password %><br />
+    <%= f.password_field :password, placeholder: "minimum of 6 characters", class: "text-field" %>
+  </div>
+
+    <div class="form-field">
+    <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, placeholder: "retype password", class: "text-field" %>
+    </div>
+
+  <div class="sign-up-action">
+    <%= f.submit "Sign up", class: "log-in-cta" %>
+  </div>
+<% end %>
+</div>
 
 <br>
 
