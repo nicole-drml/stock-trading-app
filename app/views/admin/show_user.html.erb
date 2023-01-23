@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>   <%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %>  </h1>
+<span>
+  <%= @user.email %> 
+</span>
+
+
+
+<div>
+  <%= link_to "Edit this user", edit_user_path(@user) %> |
+  <% if @user.status == "pending"  %>
+    <%= link_to "Back to pending users", admin_pending_users_path %>
+  <% else %>
+    <%= link_to "Back to traders", admin_users_path %>
+  <% end %>
+  <%= button_to "Destroy this user", @user, method: :delete %>
+</div>
