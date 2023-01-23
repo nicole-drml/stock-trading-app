@@ -22,7 +22,7 @@ test:
 
 production:
   <<: *default
-  database: stock-app_production
+  database: stock_trading
   username:    postgres
   password:    X9K2tKxyLoaV8xo
   host:    stock-trading-db.internal
