@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
 
   get 'home/index'
-  oot 'home#index' 
+  root 'home#index' 
 
   authenticated :user, ->(user) {user.admin? } do
 
