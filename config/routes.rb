@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   root 'home#index' 
 
   authenticated :user, ->(user) {user.admin? } do
-
+    resources :stocks
+    
     scope "/admin" do
       resources :users
     end
@@ -20,3 +21,4 @@ Rails.application.routes.draw do
     get 'admin/edit/user/:id' => 'users#edit', as: 'edit_selected_user'
   end
 end
+

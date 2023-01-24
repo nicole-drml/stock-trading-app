@@ -12,7 +12,7 @@ class RegistrationMailer < ApplicationMailer
       @user = user
       mail(
         to: @user.email,
-        subject: "Account Created",
+        subject: "Welcome to Buzz",
       )
     end
 
