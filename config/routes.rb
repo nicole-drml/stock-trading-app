@@ -14,9 +14,9 @@ Rails.application.routes.draw do
     scope "/admin" do
       resources :users
     end
-    get '/admin/dashboard' => 'admin#index' 
+    get '/admin/dashboard' => 'users#dashboard' 
     get '/admin/users' => 'users#index', as: 'admin/users' 
-    get '/admin/pending_users' => 'admin#pending_users' 
+    get '/admin/pending_users' => 'users#pending_users' 
     post 'admin/users' => 'users#create', as: 'admin_create_user'
     get 'admin/edit/user/:id' => 'users#edit', as: 'edit_selected_user'
   end
