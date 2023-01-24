@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_24_113507) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_24_144342) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,6 +18,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_24_113507) do
     t.string "symbol", null: false
     t.string "name", null: false
     t.decimal "price", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "action", null: false
+    t.bigint "stock_id", null: false
+    t.integer "quantity", null: false
+    t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -34,6 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_24_113507) do
     t.datetime "updated_at", null: false
     t.string "first_name", default: "", null: false
     t.string "last_name", default: "", null: false
+    t.decimal "balance", default: "0.0"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
