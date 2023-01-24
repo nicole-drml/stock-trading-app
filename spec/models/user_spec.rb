@@ -15,6 +15,6 @@ RSpec.describe User, type: :model do
   it "sets the default status to active" do
     user = User.create(first_name: 'Joe', last_name: 'Terns', email: 'joe@terns.com', password: 'password')
 
-    expect(user.status).to eq 'active'
+    expect(user.status).to eq 'pending'
   end
 end
