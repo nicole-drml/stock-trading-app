@@ -23,8 +23,6 @@ class User < ApplicationRecord
     self.role ||= :trader
   end
 
-  # def admin?
-  #   role == 'admin'
-  # end
+  has_many :transactions
 end
 

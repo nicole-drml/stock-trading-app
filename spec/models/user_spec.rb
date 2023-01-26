@@ -17,4 +17,10 @@ RSpec.describe User, type: :model do
 
     expect(user.status).to eq 'pending'
   end
+
+  it "creates a new user" do
+    user = User.create(first_name: 'Joe', last_name: 'Terns', email: 'joe@terns.com', password: 'password')
+    
+    expect(user.created_at).to_not eq nil
+  end
 end
