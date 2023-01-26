@@ -2,8 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Transaction, type: :model do    
 
-  it "is able to buy when user is active" do
-    user = User.create(first_name: 'Joe', last_name: 'Terns', email: 'joe@terns.com', password: 'password', status: 'active', balance: 1000)
+  describe 'user_active?' do
 
     client = IEX::Api::Client.new
     aapl = client.quote('AAPL')
@@ -11,71 +10,134 @@ RSpec.describe Transaction, type: :model do
 
     stock = Stock.create(symbol: aapl.symbol, name: aapl_info.company_name, price: aapl.latest_price)
 
-    if user.status == "active"
-      transaction = Transaction.create(user_id: user.id, action: 'buy', stock_id: stock.id, quantity: 1, price: stock.price)
-      
-      transaction.price = transaction.quantity * stock.price
-      initial_balance = user.balance 
-      new_balance = user.balance - transaction.price
-      user.balance = new_balance
 
+    it "is able to buy when user is active" do
+      user = User.create(first_name: 'Joe', last_name: 'Terns', email: 'joe@terns.com', password: 'password', status: 'active', balance: 1000)
+
+      if user.status == "active"
+        pending_transaction = Transaction.new(user_id: user.id, action: 'buy', stock_id: stock.id, quantity: 1)
+        pending_transaction.price = pending_transaction.quantity * stock.price
+        initial_balance = user.balance 
+
+        if user.balance > pending_transaction.price
+          transaction = Transaction.create(user_id: user.id, action: 'buy', stock_id: stock.id, quantity: 1)
+
+          transaction.price = transaction.quantity * stock.price
+          user.balance = user.balance - transaction.price
+        end
+      end
+
+      expect(user.balance).to eq 1000 - transaction.price
     end
 
-    expect(user.balance).to eq (initial_balance - transaction.price)
+    it "is able to sell when user is active" do
+      user = User.create(first_name: 'Joe', last_name: 'Terns', email: 'joe@terns.com', password: 'password', status: 'active', balance: 1000)
+
+      if user.status == "active"
+        pending_transaction = Transaction.new(user_id: user.id, action: 'sell', stock_id: stock.id, quantity: 1)
+        pending_transaction.price = pending_transaction.quantity * stock.price
+        initial_balance = user.balance 
+
+        if user.balance > pending_transaction.price
+          transaction = Transaction.create(user_id: user.id, action: 'sell', stock_id: stock.id, quantity: 1)
+
+          transaction.price = transaction.quantity * stock.price
+          user.balance = user.balance + transaction.price
+        end
+      end
+     
+      expect(user.balance).to eq 1000 + transaction.price
+    end
+
+    it "is not able to buy when user is pending" do
+      user = User.create(first_name: 'Joe', last_name: 'Terns', email: 'joe@terns.com', password: 'password', status: 'pending', balance: 1000)
+      
+      if user.status == "active"
+        pending_transaction = Transaction.new(user_id: user.id, action: 'buy', stock_id: stock.id, quantity: 1)
+        pending_transaction.price = pending_transaction.quantity * stock.price
+        initial_balance = user.balance 
+
+        if user.balance > pending_transaction.price
+          transaction = Transaction.create(user_id: user.id, action: 'buy', stock_id: stock.id, quantity: 1)
+
+          transaction.price = transaction.quantity * stock.price
+          user.balance = user.balance - transaction.price
+        end
+      end
+     
+      expect(user.balance).to eq 1000
+    end
+
+    it "is not able to sell when user is pending" do
+      user = User.create(first_name: 'Joe', last_name: 'Terns', email: 'joe@terns.com', password: 'password', status: 'pending', balance: 1000)
+      
+      if user.status == "active"
+        pending_transaction = Transaction.new(user_id: user.id, action: 'buy', stock_id: stock.id, quantity: 1)
+        pending_transaction.price = pending_transaction.quantity * stock.price
+        initial_balance = user.balance 
+
+        if user.balance > pending_transaction.price
+          transaction = Transaction.create(user_id: user.id, action: 'sell', stock_id: stock.id, quantity: 1)
+          transaction.price = transaction.quantity * stock.price
+          user.balance = user.balance + transaction.price
+        end
+      end
+     
+      expect(user.balance).to eq 1000
+    end
   end
 
-
-  it "is able to sell when user is active" do
-    user = User.create(first_name: 'Joe', last_name: 'Terns', email: 'joe@terns.com', password: 'password', status: 'active', balance: 1000)
-
+  describe 'user_balance_sufficient?' do
     client = IEX::Api::Client.new
     aapl = client.quote('AAPL')
     aapl_info = client.company('AAPL')
-
     stock = Stock.create(symbol: aapl.symbol, name: aapl_info.company_name, price: aapl.latest_price)
 
-    if user.status == "active"
-      transaction = Transaction.create(user_id: user.id, action: 'sell', stock_id: stock.id, quantity: 1, price: stock.price)
-      
-      transaction.price = transaction.quantity * stock.price
-      initial_balance = user.balance 
-      new_balance = user.balance + transaction.price
-      user.balance = new_balance
-
+    it "should be able to buy when balance is sufficient" do
+      user = User.create(first_name: 'Joe', last_name: 'Terns', email: 'joe@terns.com', password: 'password', status: 'active', balance: 1000)
+      if user.status == "active"
+        pending_transaction = Transaction.new(user_id: user.id, action: 'buy', stock_id: stock.id, quantity: 1)
+        pending_transaction.price = pending_transaction.quantity * stock.price
+        initial_balance = user.balance 
+  
+        if user.balance > pending_transaction.price
+          transaction = Transaction.create(user_id: user.id, action: 'buy', stock_id: stock.id, quantity: 1)
+          transaction.price = transaction.quantity * stock.price
+          user.balance = user.balance - transaction.price
+        end
+        
+      end
+  
+      expect(user.balance).to eq (1000 - transaction.price)
     end
 
-    expect(user.balance).to eq (initial_balance + transaction.price)
-  end
-
-  it "is shouldn't be able to sell when balance is insufficient" do
-    user = User.create(first_name: 'Joe', last_name: 'Terns', email: 'joe@terns.com', password: 'password', status: 'active', balance: 1000)
-
-    client = IEX::Api::Client.new
-    aapl = client.quote('AAPL')
-    aapl_info = client.company('AAPL')
-
-    stock = Stock.create(symbol: aapl.symbol, name: aapl_info.company_name, price: aapl.latest_price)
-
-    if user.status == "active"
-      transaction = Transaction.create(user_id: user.id, action: 'sell', stock_id: stock.id, quantity: 100)
-      
-      transaction.price = transaction.quantity * stock.price
-      initial_balance = user.balance 
-      new_balance = user.balance + transaction.price
-      user.balance = new_balance
-
+    it "shouldn't be able to buy when balance is insufficient" do
+      user = User.create(first_name: 'Joe', last_name: 'Terns', email: 'joe@terns.com', password: 'password', status: 'active', balance: 1000)
+  
+      client = IEX::Api::Client.new
+      aapl = client.quote('AAPL')
+      aapl_info = client.company('AAPL')
+  
+      stock = Stock.create(symbol: aapl.symbol, name: aapl_info.company_name, price: aapl.latest_price)
+  
+      if user.status == "active"
+  
+        pending_transaction = Transaction.new(user_id: user.id, action: 'buy', stock_id: stock.id, quantity: 100)
+        pending_transaction.price = pending_transaction.quantity * stock.price
+        initial_balance = user.balance 
+  
+        if user.balance > pending_transaction.price
+          transaction = Transaction.create(user_id: user.id, action: 'buy', stock_id: stock.id, quantity: 100)
+          transaction.price = transaction.quantity * stock.price
+          user.balance = user.balance - transaction.price
+        end
+        
+      end
+  
+      expect(user.balance).to eq 1000
     end
-
-    expect(user.balance).to eq (initial_balance + transaction.price)
   end
 
-  it "subtracts" do 
-    old_balance = 100
-    quantity = 2
-    price = 10
-    new_balance = old_balance - (quantity * price)
-
-    expect(new_balance).to eq  80
-  end
+  
 
 end
