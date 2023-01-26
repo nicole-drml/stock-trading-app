@@ -21,6 +21,6 @@ RSpec.describe User, type: :model do
   it "creates a new user" do
     user = User.create(first_name: 'Joe', last_name: 'Terns', email: 'joe@terns.com', password: 'password')
     
-    expect(user.created_at).to_not eq nil
+    expect(user.created_at).to_not be_nil
   end
 end

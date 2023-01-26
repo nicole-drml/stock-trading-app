@@ -7,9 +7,7 @@ RSpec.describe Transaction, type: :model do
     client = IEX::Api::Client.new
     aapl = client.quote('AAPL')
     aapl_info = client.company('AAPL')
-
     stock = Stock.create(symbol: aapl.symbol, name: aapl_info.company_name, price: aapl.latest_price)
-
 
     it "is able to buy when user is active" do
       user = User.create(first_name: 'Joe', last_name: 'Terns', email: 'joe@terns.com', password: 'password', status: 'active', balance: 1000)
@@ -87,6 +85,7 @@ RSpec.describe Transaction, type: :model do
     end
   end
 
+
   describe 'user_balance_sufficient?' do
     client = IEX::Api::Client.new
     aapl = client.quote('AAPL')
@@ -137,7 +136,5 @@ RSpec.describe Transaction, type: :model do
       expect(user.balance).to eq 1000
     end
   end
-
-  
 
 end
