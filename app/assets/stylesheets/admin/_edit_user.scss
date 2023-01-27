@@ -1,0 +1,103 @@
+.edit_view_page {
+    display: flex;
+    flex-direction: column;
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .edit_form_container {
+        background-color: rgba(255, 228, 196, .05);
+        font-size: 1.5em;
+        padding: 5px;
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+        height: 45vh;
+        width: 80vw;
+
+        .form-inputs {
+            display: flex;
+            flex-direction: column;
+            width: 35%;
+            margin-left: auto;
+            margin-right: auto;
+            // background-color: rgb(203, 149, 149);
+            margin-top: 3%;
+            gap: 10px;
+
+            .field {
+                // background-color: black;
+                display: flex;
+                gap: 20px;
+                justify-content: left;
+                justify-content: space-between;
+                label {
+                    // display: inline-block;
+                    // text-align: left;
+                }
+                input {
+                    font-size: 1em;
+                    width: 70%;
+                    padding: 3px;
+                    // background-color: aquamarine;
+                }
+                select {
+                    font-size: 1em;
+                    margin-left: 15%;
+                    margin-right: auto;
+                    padding: 3px;
+                    height: 40px;
+                }
+
+            }
+        }
+        
+        .form-actions {
+            input {
+                cursor: pointer;
+                display: flex;
+                margin-left: auto;
+                margin-right: auto;
+                align-items: center;
+                justify-content: center;
+                font-size: .90em;
+                margin-top: 40px;
+                height: 45px;
+                width: 150px;
+                background-color: #ffdc5e;
+                border-radius: 20px;
+                border: none;
+            }
+        }
+
+        .delete_link {
+            text-align: right;
+            padding: 25px 15px;
+            a {
+                color: rgb(202, 131, 131);
+                transition: 300ms;
+
+                &:hover {
+                    color: rgb(255, 5, 5);
+                }
+              }
+          
+        }
+    }
+    .link_to_traders {
+        padding: 5px;
+        margin-top: 280px;
+        a {
+            padding: 5px;
+            font-size: 1.5em;
+            color: #fff;
+        
+        &:hover {
+            color: #ffdc5e;
+        }
+        }
+    }
+}

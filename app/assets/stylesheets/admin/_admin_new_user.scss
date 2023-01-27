@@ -1,0 +1,41 @@
+.admin_register_view_page {
+  h1 {
+    text-align: center;
+  }
+
+  .new_form_container {
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      margin-left: 25%;
+      font-size: 1.2em;
+
+      input {
+        font-size: 1em;
+        margin-top: 10px;
+        width: 60%;
+      }
+    }
+  }
+}
+
+.link_to_traders {
+  padding: 5px;
+  margin-top: 240px;
+  a {
+    padding: 5px;
+    font-size: 1.5em;
+    color: #fff;
+
+    &:hover {
+      color: #ffdc5e;
+    }
+  }
+}
