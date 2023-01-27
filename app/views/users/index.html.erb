@@ -1,29 +1,30 @@
-<div id="user_index_page">
-    <%= link_to "Add Trader", new_user_path %>
+<div class="users_page">
 
-    <h3>Traders:</h3>
+    <h3>TRADERS</h3>
+    <p id="add_trader">  <%= link_to "Add Trader", new_user_path %> </p>
+
     <div class="users_table">
         <div class="users_header">
-            <h3 class="id_user_able">ID</h3>
-            <h3 class="name_user_able">First Name</h3>
-            <h3 class="name_user_able">Last Name</h3>
-            <h3 class="email_user_able">Email</h3>
-            <h3 class="role_user_able">Role</h3>
-            <h3 class="role_user_able">Status</h3>
-            <h3 class="actions_user_able">Action</h3>
+            <h3 class="id_user_table">ID</h3>
+            <h3 class="name_user_table">First Name</h3>
+            <h3 class="name_user_table">Last Name</h3>
+            <h3 class="email_user_table">Email</h3>
+            <h3 class="role_user_table">Role</h3>
+            <h3 class="role_user_table">Status</h3>
+            <h3 class="actions_user_table">Action</h3>
         </div>
         <ul>
         <% @users.sort.each do |user| %>
             <% if user.role == "trader" && user.status == "active" %>
                 <li class="user_iteration"> 
-                    <p class="id_user_able"> <%= user.id %> </p>
-                    <p class="name_user_able"> <%= user.first_name.titleize %>  </p>
-                    <p class="name_user_able"> <%= user.last_name.titleize %>  </p>
-                    <p class="email_user_able"> <%= user.email.downcase %>  </p>
-                    <p class="role_user_able"> <%= user.role.capitalize %> </p>
-                    <p class="role_user_able"> <%= user.status.capitalize %> </p>
+                    <p class="id_user_table"> <%= user.id %> </p>
+                    <p class="name_user_table"> <%= user.first_name.titleize %>  </p>
+                    <p class="name_user_table"> <%= user.last_name.titleize %>  </p>
+                    <p class="email_user_table"> <%= user.email.downcase %>  </p>
+                    <p class="role_user_table"> <%= user.role.capitalize %> </p>
+                    <p class="role_user_table"> <%= user.status.capitalize %> </p>
                     
-                    <p class="actions_user_able">
+                    <p class="actions_user_table">
 
                     <% link_to "Show this user", user %>
 
