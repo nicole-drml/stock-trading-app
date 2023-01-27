@@ -1,45 +1,57 @@
-<h1>Editing user</h1>
+<div class="edit_view_page">
 
+  <h1>Editing Trader</h1>
 
-<%= simple_form_for(@user) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <div class="edit_form_container">
+    <%= simple_form_for(@user) do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
+      <div class="form-inputs">
 
-    <div class="field">
-      <%= f.label :first_name %><br />
-      <%= f.text_field :first_name, autofocus: true, autocomplete: "first-name" %>
-    </div>
+        <div class="field">
+          <%= f.label :first_name %><br />
+          <%= f.text_field :first_name, autofocus: true, autocomplete: "first-name" %>
+        </div>
 
-    <div class="field">
-      <%= f.label :last_name %><br />
-      <%= f.text_field :last_name, autocomplete: "last-name" %>
-    </div>
+        <div class="field">
+          <%= f.label :last_name %><br />
+          <%= f.text_field :last_name, autocomplete: "last-name" %>
+        </div>
 
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autocomplete: "email" %>
-    </div>
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autocomplete: "email" %>
+        </div>
 
-    <div class="field">
-      <%= f.label :status %><br />
-      <%= f.select :status, ['pending', 'active'], autocomplete: "status"%>
-    </div>
+        <div class="field">
+          <%= f.label :status %><br />
+          <%= f.select :status, ['pending', 'active'], autocomplete: "status"%>
+        </div>
 
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit %>
+      </div>
+
+      <div class="delete_link">
+        <%= link_to @user, data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@user.first_name}?" }, :id => "delete_user_link" do %>
+          <span>Delete Trader</span>
+        <% end %>
+
+      </div>
+    <% end %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+
+
+  <div class="link_to_traders">
+    <% if @user.status == "active"  %>
+      <%= link_to "Show active traders", admin_active_users_path %>
+    <% else  %>
+      <%= link_to "Show pending traders", admin_pending_users_path %>
+    <% end  %>
   </div>
-<% end %>
 
-
-<br>
-
-<div>
-  <%= link_to "Show this user", @user %> |
-  <%= link_to "Back to dashboard", admin_dashboard_path %>
-  
-  <%= link_to "Destroy this user", @user, method: :delete %>
 </div>

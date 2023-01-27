@@ -1,5 +1,3 @@
-<p style="color: maroon"><%= notice %></p>
-
 <div class="show_user_container">
 <h1>   <%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %>  </h1>
 <span>
@@ -11,7 +9,7 @@
   <% if @user.status == "pending"  %>
     <%= link_to "Back to pending users", admin_pending_users_path %>
   <% else %>
-    <%= link_to "Back to traders", admin_users_path %>
+    <%= link_to "Back to traders", admin_active_users_path %>
   <% end %>
   <%= button_to "Destroy this user", @user, method: :delete %>
 </div>
