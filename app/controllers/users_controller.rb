@@ -35,6 +35,9 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         RegistrationMailer.account_created(@user).deliver
+      # else
+      #   format.html { render :new, status: :unprocessable_entity }
+      #   format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
