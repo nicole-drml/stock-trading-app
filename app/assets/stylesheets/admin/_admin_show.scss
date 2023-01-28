@@ -1,0 +1,58 @@
+.show_user_container {
+    font-size: 1.4em;
+    background-color: rgba(255, 228, 196, .05);
+
+    h1 {
+        text-align: center;
+        margin-top: 70px;
+    }
+
+    a {
+        color: #fff;
+    }
+
+    .show_block_texts {
+        margin-top: 30px;
+
+
+        h3 {
+            display: inline-block;
+            margin-top: 10px;
+            text-align: left;
+            margin-left: 40%;
+            
+            span {
+                font-weight: 300;
+
+            }
+        }
+    }
+
+    .show_block_links {
+        margin-top: 80px;
+        text-align: center;
+        font-size: 1.2em;
+
+        a {
+            color: rgba(255, 255, 255, .5);
+
+            &:hover {
+                color: rgb(255, 255, 255);
+            }
+        }
+    }
+
+    .delete_link {
+        margin-top: 15%;
+        margin-left: auto;
+        padding: 30px;
+        a {
+            color: rgb(202, 131, 131);
+            transition: 300ms;
+
+            &:hover {
+                color: rgb(255, 5, 5);
+            }
+          }
+    }
+}
