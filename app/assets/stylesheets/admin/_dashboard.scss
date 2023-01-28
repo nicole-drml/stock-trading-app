@@ -1,0 +1,49 @@
+#dashboard_title {
+    text-align: center;
+    font-size: 4em;
+}
+
+.dashboard_blocks {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60vw;
+    justify-content: space-between;
+    margin-top: 7%;
+    
+    .block {
+        width: 250px;
+        aspect-ratio: 1;
+        background-color: rgba(250, 235, 215, .05);
+        border-radius: 20px;
+        transition: 300ms;
+
+        &:hover {
+            background-color: rgba(250, 235, 215, .02);
+        }
+        a {
+            color: #fff;
+        }
+        .block_text {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            h2 {
+                text-align: center;
+                font-size: 5em;
+            }
+            h4 {
+                text-align: center;
+                font-size: 2em;
+
+            }
+            
+            .pending_text {
+                color: rgb(212, 123, 123);
+            }
+        }
+    }
+}

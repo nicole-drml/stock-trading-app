@@ -7,10 +7,11 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/74309bf0dc.js" crossorigin="anonymous"></script>
+    <%= javascript_importmap_tags %>
   </head>
   <header class="nav-div">
     <div class="img-div">
@@ -39,10 +40,9 @@
   </header>
   
   <body>       
-  
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
+  <p class="notice" style="color: #ffdc5e"><%= notice %></p>
+  <p class="alert" style="color: #ffdc5e"><%= alert %></p>
     <%= yield %>
   </body>
+
 </html>
