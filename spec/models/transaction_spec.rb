@@ -16,6 +16,7 @@ RSpec.describe Transaction, type: :model do
     
     end
 
+
     it "is able to buy when user is active" do
       user = User.create(first_name: 'Joe', last_name: 'Terns', email: 'joe@terns.com', password: 'password', status: 'active', balance: 1000)
 
@@ -98,6 +99,7 @@ RSpec.describe Transaction, type: :model do
     end
   end
 
+
   context 'user balance insufficient' do
 
     before do
@@ -153,7 +155,5 @@ RSpec.describe Transaction, type: :model do
       expect(transaction.id).to be_nil 
     end
   end
-
-  
 
 end
