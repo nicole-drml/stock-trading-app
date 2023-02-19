@@ -12,6 +12,9 @@ RSpec.describe Transaction, type: :model do
       @stock = Stock.create(symbol: aapl.symbol, name: aapl_info.company_name, price: aapl.latest_price)
     end
 
+    context 'with sufficient balance' do 
+    
+    end
 
     it "is able to buy when user is active" do
       user = User.create(first_name: 'Joe', last_name: 'Terns', email: 'joe@terns.com', password: 'password', status: 'active', balance: 1000)

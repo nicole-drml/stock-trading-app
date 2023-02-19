@@ -1,4 +1,4 @@
-# fly.toml file generated for stock-trading on 2023-01-23T19:49:10+08:00
+# fly.toml file generated for stock-trading on 2023-01-28T09:46:37+08:00
 
 app = "stock-trading"
 kill_signal = "SIGINT"
