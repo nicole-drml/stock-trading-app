@@ -17,6 +17,10 @@
   margin-top: 10rem;
 }
 
+#sign-up-div {
+  height: 40rem;
+}
+
 .buzz-logo {
   display: flex;
   justify-content: center;
@@ -84,4 +88,16 @@
 .forgot {
   margin-left: 3.7rem;
   margin-top: 0.5rem;
+}
+
+.sign-up-action {
+  input {
+    cursor: pointer;
+    transition: 300ms;
+
+    &:hover {
+      color: #22223b;
+      background-color: #fff;
+    }
+  }
 }

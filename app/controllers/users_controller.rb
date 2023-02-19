@@ -13,8 +13,8 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def show
-  end
+  # def show
+  # end
 
   def new
     @user = User.new
@@ -35,9 +35,9 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         RegistrationMailer.account_created(@user).deliver
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+      # else
+      #   format.html { render :new, status: :unprocessable_entity }
+      #   format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -61,7 +61,7 @@ class UsersController < ApplicationController
     @user.destroy
 
     respond_to do |format|
-      format.html { redirect_to users_url, notice: "User was successfully destroyed." }
+      format.html { redirect_to admin_dashboard_url, notice: "User was successfully destroyed." }
       format.json { head :no_content }
     end
   end

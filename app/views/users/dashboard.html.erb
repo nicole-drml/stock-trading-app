@@ -1,16 +1,45 @@
+<h1 id="dashboard_title">Dashboard</h1>
 
-<h1>dashboard</h1>
+<div class="dashboard_blocks">
 
-<% @pending = Array.new %>
-<% User.all.each do |user| %>
-    <% if user.status == "pending" %>
-        <% @pending << user %>
-    <% end %>
-<% end %>
-
-<%= link_to admin_pending_users_path do %>
-    <div>
-        <h2> <%= @pending.count %> <span>pending users</span> </h2> 
+    <div id="transactions_block" class="block">
+        <div class="block_text">
+            <h4> Transactions </h4>
+        </div>
     </div>
-<% end %>
-<h3> <%= link_to "active users", admin_users_path %> </h3>
+
+
+    <div id="active_users_block" class="block">
+        <% @active = Array.new %>
+        <% User.all.each do |user| %>
+            <% if user.status == "active" %>
+                <% @active << user %>
+            <% end %>
+        <% end %>
+
+        <%= link_to admin_active_users_path do %>
+            <div class="block_text">
+                <h2> <%= @active.count %>  </h2> 
+                <h4>Traders</h4>
+            </div>
+        <% end %>
+    </div>
+
+    <div id="pending_users_block" class="block">
+        <% @pending = Array.new %>
+        <% User.all.each do |user| %>
+            <% if user.status == "pending" %>
+                <% @pending << user %>
+            <% end %>
+        <% end %>
+
+        <%= link_to admin_pending_users_path do %>
+            <div class="block_text">
+                <h2 class="pending_text"> <%= @pending.count %>  </h2> 
+                <h4 class="pending_text">Pending</h4>
+            </div>
+        <% end %>
+    </div>
+</div>
+
+

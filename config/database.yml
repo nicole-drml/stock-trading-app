@@ -22,9 +22,11 @@ test:
 
 production:
   <<: *default
-  database: stock_trading
-  username:    postgres
-  password:    X9K2tKxyLoaV8xo
-  host:    stock-trading-db.internal
-  port:  5432
-  url: postgres://postgres:X9K2tKxyLoaV8xo@stock-trading-db.internal:5432
+  database: lm10_production
+  # <<: *default
+  # database: stock_trading
+  # username:    postgres
+  # password:    X9K2tKxyLoaV8xo
+  # host:    stock-trading-db.internal
+  # port:  5432
+  # url: postgres://postgres:X9K2tKxyLoaV8xo@stock-trading-db.internal:5432

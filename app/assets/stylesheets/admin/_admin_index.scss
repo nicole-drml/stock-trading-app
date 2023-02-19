@@ -1,5 +1,16 @@
-#user_index_page {
+.users_page {
+    font-size: 1.3em;
 
+    h3 {
+        text-align: center;
+        padding: 15px;
+        font-size: 1.5em;
+    }
+
+    #add_trader {
+        font-size: 1.2em;
+        padding:  10PX 30px;
+    }
     a {
         text-decoration: none;
         transition: 300ms;
@@ -17,27 +28,28 @@
     .users_table {
         display: flex;
         flex-direction: column;
+        padding:  0 15px;
 
-        .id_user_able {
-            width: 30px;
+        .id_user_table {
+            width: 50px;
 
         }
 
-        .name_user_able {
+        .name_user_table {
+            width: 200px;
+
+        }
+
+        .email_user_table {
+            width: 200px;
+        }
+
+        .role_user_table {
             width: 150px;
-
         }
 
-        .email_user_able {
+        .actions_user_table {
             width: 180px;
-        }
-
-        .role_user_able {
-            width: 100px;
-        }
-
-        .actions_user_able {
-            width: 130px;
 
         }
 

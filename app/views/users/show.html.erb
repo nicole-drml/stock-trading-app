@@ -1,18 +1,27 @@
-<p style="color: green"><%= notice %></p>
+<div class="show_user_container">
+  <h1>   <%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %>  </h1>
 
-<h1>   <%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %>  </h1>
-<span>
-  <%= @user.email %> 
-</span>
+  <div class="show_block_texts">
+    <h3 class="id_user_table">ID: <span class="id_user_table"> <%= @user.id %> </span> </h3>
+    <h3 class="name_user_table">First Name: <span class="name_user_table"> <%= @user.first_name.titleize %>  </span>  </h3>
+    <h3 class="name_user_table">Last Name: <span class="name_user_table"> <%= @user.last_name.titleize %>  </span></h3>
+    <h3 class="email_user_table">Email: <span class="email_user_table"> <%= @user.email.downcase %>  </span> </h3>
+    <h3 class="role_user_table">Role: <span class="role_user_table"> <%= @user.role.capitalize %> </span>  </h3>
+    <h3 class="role_user_table">Status: <span class="role_user_table"> <%= @user.status.capitalize %> </span>  </h3>
+  </div>
 
+  <div class="show_block_links">
+    <%= link_to "Edit this user", edit_user_path(@user) %> |
+    <% if @user.status == "pending"  %>
+      <%= link_to "Back to pending users", admin_pending_users_path %>
+    <% else %>
+      <%= link_to "Back to traders", admin_active_users_path %>
+    <% end %>        
+  </div>
 
-
-<div>
-  <%= link_to "Edit this user", edit_user_path(@user) %> |
-  <% if @user.status == "pending"  %>
-    <%= link_to "Back to pending users", admin_pending_users_path %>
-  <% else %>
-    <%= link_to "Back to traders", admin_users_path %>
-  <% end %>
-  <%= button_to "Destroy this user", @user, method: :delete %>
+  <div class="delete_link">
+    <%= link_to @user, data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@user.first_name}?" }, :id => "delete_user_link" do %>
+    <p>Delete Trader</p>
+    <% end %>
+  </div>
 </div>
